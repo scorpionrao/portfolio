@@ -1,0 +1,61 @@
+/** Example rules used by the template application (remove for your app) */
+
+.pageTitle {
+  font-size: 3em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 0px;
+  text-align: center;
+  align: center;
+}
+
+.TopMenuBar
+{
+    border-color: #aaa;
+    margin: auto;
+}
+
+.TopMenuCell
+{
+    background-color: #D8E1E1;
+    font-size: large;
+    text-align: center;
+}
+
+.TopMenuCellText
+{
+    color: red;
+    text-decoration: none;
+}
+
+.sendButton {
+  display: block;
+  font-size: 16pt;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+  margin: 15px 6px 6px;
+}
+
+/**
+
+Try ID for left panel, right panel and global menu bar
+
+th
+{
+    color: #000;
+    background-color: #ccc;
+    border-style: solid;
+    border-color: #aaa;
+    border-width: 1px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.model-year
+{
+    text-align: right;    
+}
+
+*/

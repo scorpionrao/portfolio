@@ -1,0 +1,2 @@
+serviceClass: com.anusha.portfolio.client.GreetingService
+path: C9F3E466B75AC4A7C6472BF746CE6674.gwt.rpc

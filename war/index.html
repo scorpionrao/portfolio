@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>www.goportfolio.com</title>
+ 
+
+<link href="http://www.gstatic.com/codesite/ph/17444577587916266307/css/ph_core.css" rel="stylesheet" type="text/css" />
+ <link href="http://code.google.com/css/codesite.pack.04102009.css" rel="stylesheet" type="text/css" />
+  <script language="javascript" src='script/jquery-1.6.min.js'></script>
+  <script language="javascript" src='script/ajax.util.js'></script>
+</head>
+
+<body>
+    
+   
+  <!-- content -->  
+  <div  id="gc-pagecontent" >
+  <h1 class="page_title">Future - www.goportfolio.com</h1>
+  <br/>
+  
+ <!-- tabs --> 
+ <div id="tabs" class="gtb">
+      <a id="home" href="#home" class="tab" style="text-decoration: none">Home</a>	   
+	  <a id="topMenu" href="#topMenu" class="tab" style="text-decoration: none">Top Menu</a> 
+	  <a id="subMenu" href="#subMenu" class="tab" style="text-decoration: none">Sub Menu</a>
+	  <a id="picture" href="#picture" class="tab" style="text-decoration: none">Pictures</a>
+	  <a id="portfolio" href="#portfolio" class="tab" style="text-decoration: none">Preview Portfolio</a>
+	  <div class="gtbc"></div>
+  </div>
+  <!-- home page tab content -->
+  <div class="g-unit" id="home-tab">
+  <h2>CRUD Top Menu</h2>
+    <p>
+      <div align="left">
+        <img src="images/TopMenuSample.jpg" />
+      </div>
+      <br/>
+        <ol>
+          <li>Use the <b>Top Menu</b> tab to view list of Top menu items.</li>
+          <li><b>View</b>, <b>Add</b>, <b>Edit</b>, <b>Delete</b> Top Menu items.</li>
+          <li><b>Activate / Deactivate</b> to include / exclude from Portfolio.</li>
+        </ol>
+      </p>
+      
+    <h2>CRUD Sub Menu</h2>
+     <p>
+      <div align="left">
+        <img src="images/SubMenuSample.jpg" />
+      </div>
+     <br/>
+        <ol>
+          <li>Use the <b>Sub Menu</b> tab to view list of Sub menu items.</li>
+          <li><b>View</b>, <b>Add</b>, <b>Edit</b>, <b>Delete</b> Sub Menu items.</li>
+          <li>Each Sub Menu will have <b>parent</b> Top Menu.</li>
+          <li><b>Activate / Deactivate</b> to include / exclude from Portfolio.</li>
+        </ol>
+      </p>
+      
+      <h2>CRUD Pictures</h2>
+     <p>
+      <div align="left">
+        <img src="images/SubMenuSample.jpg" />
+      </div>
+     <br/>
+        <ol>
+          <li>Use the <b>Picture</b> tab to view list of Pictures.</li>
+          <li><b>View</b>, <b>Add</b>, <b>Edit</b>, <b>Delete</b> Pictures.</li>
+          <li>Each Picture will have <b>parent</b> Sub Menu.</li>
+          <li><b>Activate / Deactivate</b> to include / exclude from Portfolio.</li>
+        </ol>
+      </p>
+      
+      <h2>Preview Portfolio</h2>
+     <p>
+      <div align="left">
+        <img src="images/GeneratePortfolio.jpg" />
+      </div>
+     <br/>
+        <ol>
+          <li>Generates your Portfolio with all Active <b>Top Menus</b>, <b>Sub Menus</b>, <b>Pictures.</b></li>
+        </ol>
+      </p>
+  </div>  
+  
+   <!-- ******************************************* Top Menu tab content ******************************************* -->
+  <div class="g-unit" id="topMenu-tab">
+    <div class ="message" id="topMenu-show-message" style="display:none">
+  </div>
+   <!-- search container -->
+   	<div class="gsc-search-box" id="topMenu-search-ctr">
+   	<!-- section title -->
+   	<h2>All Top Menus</h2>
+   	<form name="topMenu-search-form" id="topMenu-search-form">
+	   	 <label>Top Menu Name :</label>
+	   	 <input type="text" name="q" id="q" class="gsc-input"/> 
+	     <input type="button" value="Search" onclick="search('topMenu')" class="gsc-search-button" />
+	     <input type="button" value="New Top Menu" onclick="add('topMenu')" class="gsc-search-button" />
+	     <input type="reset" id="topMenu-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+    </form>
+   	</div>
+   	
+   <!-- top menu list container -->
+   	<div class="results" style="border:0;" id="topMenu-list-ctr">
+          <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th scope="col">Top Menu Name</th>
+                <th scope="col">Include / Exclude</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>               
+              </tr>
+            </thead>
+            <tbody id="topMenu-list-tbody"></tbody>
+          </table>
+  	</div>
+  
+  	<!-- create container -->
+	  	<div class="create-ctr" id="topMenu-create-ctr">
+	  	<h2>Create Top Menu</h2>
+	  	<form name="topMenu-create-form" id="topMenu-create-form">
+	  	<table width="185" cellspacing="0" cellpadding="0">
+	  	<tbody>
+	  	<tr >
+		 <td >Top Menu Name</td>
+          <td><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+		 </tr>
+		<tr>
+           <td>Include / Exclude</td>
+           <td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="includeExclude" id="includeExclude" /></td>
+         </tr>
+         <tr>
+           <td>Description</td>
+           <td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="description" id="description" /></td>
+         </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 
+          <input type="button" class="save" title="Save" value="Save" onclick="formValidate('topMenu')" />
+          <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('topMenu')" />
+          <input type="reset" id="topMenu-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+         </td>
+        </tr>
+	  	</tbody>
+  </table>
+  </form>
+  </div>
+  
+  </div>
+  
+   <!-- ******************************************* sub menu tab ******************************************* -->
+  <div class="g-unit" id="subMenu-tab">
+    <div class ="message" id="subMenu-show-message" style="display:none">
+  </div>
+	   <!-- search container -->
+	   	<div class="gsc-search-box" id="subMenu-search-ctr">
+	   	<!-- section title -->
+	   	<h2>All Sub Menus</h2>
+	   	<form name="subMenu-search-form" id="subMenu-search-form">
+	   	   <input type="text" name="q" id="q" class="gsc-input"/> 
+	   	   <select id="by" name="subMenu-searchby" class="gsc-input">
+              <option value="name">Sub Menu</option>
+              <option value="topMenu">Top Menu</option>
+            </select> 
+            <input type="button" value="Search" onclick="search('subMenu')" class="gsc-search-button" />
+            <input type="button" value="New Sub Menu" onclick="add('subMenu')" class="gsc-search-button" />
+            <input type="reset" id="subMenu-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+          </form>  
+	   	</div>
+	   <!-- list container -->
+	   	<div class="results" style="border:0;" id="subMenu-list-ctr">
+           <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+             <thead>
+               <tr>
+                 <th scope="col">Sub Menu Name</th>
+                 <th scope="col">Include / Exclude</th>
+                 <th scope="col">Top Menu Name</th>
+                 <th scope="col">Description</th>
+                 <th scope="col">Action</th>                 
+               </tr>
+             </thead>
+             <tbody id="subMenu-list-tbody"></tbody>
+           </table>
+	  	</div>
+	  	<!-- create container -->
+	  	<div class="create-ctr" id="subMenu-create-ctr">
+	  	<h2>Create Sub Menu</h2>
+	  	<form name="subMenu-create-form" id="subMenu-create-form">
+	  	<table width="200" cellspacing="0" cellpadding="0">
+           <tr> 
+           	 <td>Sub Menu Name</td>
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+           </tr>
+          <tr>
+           <td>Include / Exclude</td>
+           <td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="includeExclude" id="includeExclude" /></td>
+          </tr>
+          <tr>
+             <td>Top Menu Name</td>
+             <td><select id="subMenu-topMenu-list" name="topMenu"></select></td>
+           </tr>
+           <tr>
+           	<td>Description</td>
+           	<td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="description" id="description" /></td>
+           </tr>
+           
+            <tr>
+              <td>&nbsp;</td>
+              <td> 
+                  <input type="button" class="save" title="Save" value="Save" onclick="formValidate('subMenu')" />
+                  <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('subMenu')" />
+                  <input type="reset" id="subMenu-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+              </td>
+            </tr>
+			 </table>
+			 </form>
+	  	</div>
+	  	<!-- create conatiner ends here -->
+  </div>
+  
+    <!-- ******************************************* picture menu tab ******************************************* -->
+  <div class="g-unit" id="picture-tab">
+    <div class ="message" id="picture-show-message" style="display:none">
+  </div>
+	   <!-- search container -->
+	   	<div class="gsc-search-box" id="picture-search-ctr">
+	   	<!-- section title -->
+	   	<h2>All Pictures</h2>
+	   	<form name="picture-search-form" id="picture-search-form">
+	   	   <input type="text" name="q" id="q" class="gsc-input"/> 
+	   	   <select id="by" name="picture-searchby" class="gsc-input">
+              <option value="name">Picture</option>
+              <option value="subMenu">Sub Menu</option>
+              <option value="topMenu">Top Menu</option>
+            </select> 
+            <input type="button" value="Search" onclick="search('picture')" class="gsc-search-button" />
+            <input type="button" value="New Picture" onclick="add('picture')" class="gsc-search-button" />
+            <input type="reset" id="picture-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+          </form>  
+	   	</div>
+	   <!-- list container -->
+	   	<div class="results" style="border:0;" id="picture-list-ctr">
+           <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+             <thead>
+               <tr>
+                 <th scope="col">Picture Name</th>
+                 <th scope="col">Include / Exclude</th>
+                 <th scope="col">Sub Menu Name</th>
+                 <th scope="col">Description</th>
+                 <th scope="col">Action</th>
+                                 
+               </tr>
+             </thead>
+             <tbody id="picture-list-tbody"></tbody>
+           </table>
+	  	</div>
+	  	<!-- create container -->
+	  	<div class="create-ctr" id="picture-create-ctr">
+	  	<h2>Create Picture</h2>
+	  	<form name="picture-create-form" id="picture-create-form">
+	  	<table width="200" cellspacing="0" cellpadding="0">
+           <tr> 
+           	 <td>Picture Name</td>
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+           </tr>
+           <tr>
+           <td>Include / Exclude</td>
+           <td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="includeExclude" id="includeExclude" /></td>
+           </tr>
+           <tr>
+             <td>Sub Menu Name</td>
+             <td><select id="picture-subMenu-list" name="subMenu"></select></td>
+           </tr>
+           <tr>
+           	<td>Description</td>
+           	<td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="description" id="description" /></td>
+           </tr>
+           
+            <tr>
+              <td>&nbsp;</td>
+              <td> 
+                  <input type="button" class="save" title="Save" value="Save" onclick="formValidate('picture')" />
+                  <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('picture')" />
+                  <input type="reset" id="picture-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+              </td>
+            </tr>
+			 </table>
+			 </form>
+	  	</div>
+	  	<!-- create conatiner ends here -->
+  </div>
+  
+  
+    <!-- ******************************************* portfolio preview tab ******************************************* -->
+  <div class="g-unit" id="portfolio-tab">
+    <div class ="message" id="portfolio-show-message" style="display:none">
+  </div>
+	   	<!-- search container -->
+	   	<div class="gsc-search-box" id="portfolio-search-ctr">
+	   	<!-- section title -->
+	   	<form name="portfolio-search-form" id="portfolio-search-form">
+            <input type="button" value="Click here to see PORTFOLIO below !!!" onclick="search('portfolio')" class="gsc-search-button"/>
+            <input type="reset" id="portfolio-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+          </form>
+	   	</div>
+	   	<!-- list container -->
+	   	<div class="results" style="border:0;" id="portfolio-list-ctr">
+           <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+             <thead>
+               <tr>
+                 <th scope="col">PORTFOLIO will be here...</th>
+<!--                  <th scope="col">Description</th> -->
+<!--                  <th scope="col">Status</th>                    -->
+               </tr>
+             </thead>
+             <tbody id="portfolio-list-tbody"></tbody>
+           </table>
+	  	</div>
+	   	<!-- create container -->
+	  	<div class="create-ctr" id="portfolio-create-ctr">
+	  	<h2>Preview Portfolio</h2> 	  	
+	  	<form name="portfolio-create-form" id="portfolio-create-form">
+	  	<table width="200" cellspacing="0" cellpadding="0">
+            <tr> 
+           	 <td>Portfolio Name</td>
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+           </tr>
+	  		<tr>
+              <td>&nbsp;</td>
+              <td> 
+                  <input type="button" class="save" title="Save" value="Save" onclick="formValidate('portfolio')" />
+                  <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('portfolio')" />
+                  <input type="reset" id="portfolio-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+              </td>
+            </tr>
+		</table>
+		</form>
+	  	</div>
+	  	<!-- create conatiner ends here -->
+	   	
+  	</div>  
+  </div>
+<script type="text/javascript">
+
+ $(window).load(function () {
+   init();
+});
+
+</script>
+</body>
+</html>
